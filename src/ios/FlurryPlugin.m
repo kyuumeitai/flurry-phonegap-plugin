@@ -439,7 +439,7 @@
 {
     CDVPluginResult* pluginResult = nil;
     
-    NSLog(@"Reporting location to Flurry");
+    NSLog(@"Reporting locati on to Flurry");
     
     @try {
         double Latitude   = [[command.arguments objectAtIndex:0]doubleValue];
