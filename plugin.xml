@@ -3,12 +3,12 @@
 	xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	id="com.phonegap.plugins.Flurry"
-	version="3.3.6">
+	version="3.3.7">
 	<name>Flurry</name>
 	<description>Cordova/Phonegap plugin for Flurry mobile analytics</description>
 	<license>Apache 2.0</license>
 	<keywords>flurry,analytics,phonegap,cordova</keywords>
-	<author>jfpsf</author>
+	<author>kyuumeitai</author>
 
 	<js-module src="www/flurryPlugin.js" name="FlurryPlugin">
 		<clobbers target="FlurryPlugin" />
@@ -34,7 +34,7 @@
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="FlurryPlugin">
-				<param name="android-package" value="com.phonegap.plugins.Flurry" />
+				<param name="android-package" value="com.phonegap.plugins.flurry" />
 			</feature>
 		</config-file>
 
