@@ -1,4 +1,4 @@
-package com.phonegap.plugins.flurry;
+package com.phonegap.plugins;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +29,7 @@ public class Flurry extends CordovaPlugin {
         }
         return params;
     }
-    
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try{
@@ -52,7 +52,7 @@ public class Flurry extends CordovaPlugin {
                     || action.equals("logTimedEvent") || action.equals("logTimedEventWithParameters")) {
                 boolean timed = false;
                 if(args.optString(2).equalsIgnoreCase("Yes")) timed = true;
-                this.logEvent(args.getString(0), args.optJSONObject(1), timed);                
+                this.logEvent(args.getString(0), args.optJSONObject(1), timed);
             } else if(action.equals("endTimedEvent")) {
                 FlurryAgent.endTimedEvent(args.getString(0));
             } else if(action.equals("endTimedEventWithParameters")) {
@@ -75,14 +75,14 @@ public class Flurry extends CordovaPlugin {
                 return false;
             }
             callbackContext.success("");
-            return true; 
+            return true;
         } catch (JSONException e){
             Log.d("Flurry exception: ", e.getMessage());
             callbackContext.error("flurry json exception: " + e.getMessage());
             return false;
         }
     }
-    
+
     private void logEvent(String eventName, JSONObject options, boolean timed)  throws JSONException {
         if(options != null){
             Map<String, String> params = this.JsonToMap(options);
@@ -91,5 +91,5 @@ public class Flurry extends CordovaPlugin {
         }else{
             FlurryAgent.logEvent(eventName, timed);
         }
-    }   
+    }
 }
