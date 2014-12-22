@@ -2,52 +2,67 @@
 <plugin
 	xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	id="com.phonegap.plugins.flurry"
+	id="cl.multinet.plugins.flurry"
 	version="3.3.7">
+    
 	<name>Flurry</name>
-	<description>Cordova/Phonegap plugin for Flurry mobile analytics</description>
-	<license>Apache 2.0</license>
-	<keywords>flurry,analytics,phonegap,cordova</keywords>
-	<author>kyuumeitai</author>
+    
+	<description>Cordova/Phonegap plugin for Flurry mobile Analytics</description>
+    
+    <author>Álex Acuña Viera</author>
+    
+    <license>Apache 2.0</license>
+	
+    <keywords>Flurry, Analytics, Cordova, Phonegap</keywords>
+    
+    <repo>https://github.com/kyuumeitai/flurry-phonegap-plugin.git</repo>
+    
+    <issue>https://github.com/kyuumeitai/flurry-phonegap-plugin/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
 
 	<js-module src="www/Flurry.js" name="Flurry">
-		<clobbers target="Flurry" />
+		<clobbers target="window.plugins.flurry" />
 	</js-module>
 
-	<engines>
-		<engine name="cordova" version=">=3.0.0" />
-	</engines>
-
 	<platform name="ios">
+        
 		<config-file target="config.xml" parent="/*">
 			<feature name="Flurry">
 				<param name="ios-package" value="Flurry"/>
 			</feature>
 		</config-file>
+        
 		<header-file src="src/ios/Flurry.h" />
 		<header-file src="src/ios/FlurryPlugin.h" />
 		<source-file src="src/ios/FlurryPlugin.m" />
+        
 		<framework src="SystemConfiguration.framework" />
 		<framework src="Security.framework" />
 	</platform>
 
 	<platform name="android">
+        
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="Flurry">
-				<param name="android-package" value="com.phonegap.plugins.flurry" />
+				<param name="android-package" value="cl.multinet.plugins.Flurry" />
 			</feature>
 		</config-file>
 
-		<source-file src="src/android/Flurry.java"
-					target-dir="src/com/phonegap/plugins/" />
+        <config-file target="AndroidManifest.xml" parent="/*/application">
+            <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+
+		<source-file src="src/android/cl/multinet/plugins/Flurry.java" target-dir="src/cl/multinet/plugins" />
+                    
 		<dependency id="com.google.playservices" />
-		<dependency id="android.support.v4" />
-		<config-file target="AndroidManifest.xml" parent="/*/application">
-			<meta-data android:name="com.google.android.gms.version"
-			  android:value="@integer/google_play_services_version"/>
-		</config-file>
-		<config-file target="AndroidManifest.xml" parent="/*">
-		  <uses-permission android:name="android.permission.INTERNET" />
-		</config-file>
+
 	</platform>
 </plugin>

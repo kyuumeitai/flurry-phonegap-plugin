@@ -1,4 +1,4 @@
-package com.phonegap.plugins;
+package cl.multinet.plugins;
 
 import java.util.HashMap;
 import java.util.Iterator;
