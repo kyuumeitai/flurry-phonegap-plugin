@@ -2,7 +2,7 @@
 <plugin
 	xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	id="cl.multinet.plugins.flurry"
+	id="cl.multinet.plugins.flurryplugin"
 	version="3.3.7">
 
 	<name>FlurryPlugin</name>
@@ -23,7 +23,7 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-	<js-module src="www/Flurry.js" name="FlurryPlugin">
+	<js-module src="www/FlurryPlugin.js" name="FlurryPlugin">
 		<clobbers target="window.plugins.flurry" />
 	</js-module>
 
@@ -59,7 +59,7 @@
             <uses-permission android:name="android.permission.INTERNET" />
         </config-file>
 
-		<source-file src="src/android/cl/multinet/plugins/Flurry.java" target-dir="src/cl/multinet/plugins" />
+		<source-file src="src/android/cl/multinet/plugins/flurryPlugin.java" target-dir="src/cl/multinet/plugins" />
 
 		<dependency id="com.google.playservices" />
 
