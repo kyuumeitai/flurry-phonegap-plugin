@@ -5,7 +5,7 @@
 	id="cl.multinet.plugins.flurry"
 	version="3.3.7">
 
-	<name>Flurry</name>
+	<name>FlurryPlugin</name>
 
 	<description>Cordova/Phonegap plugin for Flurry mobile Analytics</description>
 
@@ -23,7 +23,7 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-	<js-module src="www/Flurry.js" name="Flurry">
+	<js-module src="www/Flurry.js" name="FlurryPlugin">
 		<clobbers target="window.plugins.flurry" />
 	</js-module>
 
@@ -35,7 +35,6 @@
 			</feature>
 		</config-file>
 
-		<header-file src="src/ios/Flurry.h" />
 		<header-file src="src/ios/FlurryPlugin.h" />
 		<source-file src="src/ios/FlurryPlugin.m" />
 
@@ -46,8 +45,8 @@
 	<platform name="android">
 
 		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="Flurry">
-				<param name="android-package" value="cl.multinet.plugins.Flurry" />
+			<feature name="FlurryPlugin">
+				<param name="android-package" value="cl.multinet.plugins.FlurryPlugin" />
 			</feature>
 		</config-file>
 

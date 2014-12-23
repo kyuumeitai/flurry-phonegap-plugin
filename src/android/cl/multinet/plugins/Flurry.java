@@ -13,11 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Flurry extends CordovaPlugin {
+public class FlurryPlugin extends CordovaPlugin {
 
     private Map<String, String> JsonToMap(JSONObject jdata) throws JSONException {
         if(jdata == null){
-            Log.d("Flurry", "not a json");
+            Log.d("FlurryPlugin", "not a json");
             return null;
         }
         @SuppressWarnings ("unchecked")
@@ -33,7 +33,7 @@ public class Flurry extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try{
-            Log.d("Flurry", action);
+            Log.d("FlurryPlugin", action);
             if(action.equals("startSession")) {
                 FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
             } else if(action.equals("endSession")) {
@@ -70,14 +70,14 @@ public class Flurry extends CordovaPlugin {
                 FlurryAgent.onError(args.getString(0), args.getString(1), " ");
             }
             else {
-                Log.d("Flurry", "invalid/na flurry method: " + action);
+                Log.d("FlurryPlugin", "invalid/na flurry method: " + action);
                 callbackContext.error("invalid/na flurry method: " + action);
                 return false;
             }
             callbackContext.success("");
             return true;
         } catch (JSONException e){
-            Log.d("Flurry exception: ", e.getMessage());
+            Log.d("FlurryPlugin exception: ", e.getMessage());
             callbackContext.error("flurry json exception: " + e.getMessage());
             return false;
         }

@@ -10,7 +10,7 @@
 #import <Cordova/CDV.h>
 
 @interface FlurryPlugin : CDVPlugin {
-    
+
 }
 
 @end
